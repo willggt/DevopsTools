@@ -1,27 +1,8 @@
+# Common configuration for all profiles
 spring:
-  config:
-    activate:
-      on-profile: development
-logging:
-  level:
-    root: INFO
-    org.springframework.*: INFO
----
-spring:
-  config:
-    activate:
-      on-profile: development
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-  jpa:
-    database: h2
-    database-platform: org.hibernate.dialect.H2Dialect
-    generate-ddl: true
-#    show-sql: true
-  h2:
-    console:
-      enabled: true
+  application:
+    name: ejemplobackend
+
 server:
   port: 8080
 
@@ -42,6 +23,25 @@ management:
       prometheus:
         enabled: true
 
+logging:
+  level:
+    root: INFO
+    org.springframework.*: INFO
+
+---
+# Development profile specific configuration
 spring:
-  application:
-    name: ejemplobackend
+  config:
+    activate:
+      on-profile: development
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+#    show-sql: true
+  h2:
+    console:
+      enabled: true
