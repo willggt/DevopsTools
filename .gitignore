@@ -88,3 +88,6 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local 
+
+src/main/resources/templates/ElToken.txt
+src/main/resources/templates/eltoken.txt
